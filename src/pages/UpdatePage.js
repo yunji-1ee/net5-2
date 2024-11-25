@@ -40,7 +40,7 @@ const UpdatePage = () => {
         }
       );
     } catch (error) {
-      console.error("user:", error);
+      console.error("Error updating user:", error);
     }
   };
 
@@ -53,7 +53,7 @@ const UpdatePage = () => {
           type="text"
           value={user.name}
           onChange={(e) => handleInputChange("name", e.target.value)}
-          placeholder="name"
+          placeholder="Enter user's name"
         />
       </div>
       <div>
@@ -62,7 +62,7 @@ const UpdatePage = () => {
           type="email"
           value={user.email}
           onChange={(e) => handleInputChange("email", e.target.value)}
-          placeholder="email"
+          placeholder="Enter user's email"
         />
       </div>
       <div>
@@ -71,7 +71,7 @@ const UpdatePage = () => {
           type="number"
           value={user.age}
           onChange={(e) => handleInputChange("age", e.target.value)}
-          placeholder="age"
+          placeholder="Enter user's age"
         />
       </div>
       <div>
@@ -80,7 +80,7 @@ const UpdatePage = () => {
           type="text"
           value={user.address}
           onChange={(e) => handleInputChange("address", e.target.value)}
-          placeholder="address"
+          placeholder="Enter user's address"
         />
       </div>
       <p>Total Edits: {editCount}</p>

@@ -23,11 +23,10 @@ const AddUserModal = ({ onClose, fetchUsers }) => {
         throw new Error("Failed to add user");
       }
 
-      fetchUsers(); // 사용자 목록 갱신
-      onClose(); // 모달 닫기
+      fetchUsers();
+      onClose();
     } catch (error) {
       console.error("Error adding user:", error);
-      alert("Failed to add user. Please try again.");
     }
   };
 
@@ -60,9 +59,7 @@ const AddUserModal = ({ onClose, fetchUsers }) => {
           onChange={(e) => setAddress(e.target.value)}
         />
         <button onClick={handleAddUser}>Add User</button>
-        <button className="close" onClick={onClose}>
-          Close
-        </button>
+        <button onClick={onClose}>Close</button>
       </div>
     </div>
   );

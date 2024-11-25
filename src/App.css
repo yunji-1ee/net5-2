@@ -21,12 +21,22 @@ body {
   max-height: 90vh;
   overflow-y: auto;
   border: 5px solid #b5dcb5;
-  max-width: 90%; /* 반응형 */
 }
 
 header {
   text-align: center;
   margin-bottom: 20px;
+}
+
+
+.btn {
+  width: 98%;
+  padding: 10px;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 15px;
 }
 
 /* Add User 버튼 */
@@ -35,18 +45,21 @@ header {
   padding: 10px;
   margin-bottom: 10px;
   border: none;
-  border-radius: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 15px;
   background-color: #4caf50;
   color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 15px;
+  
 }
 
-.btn_add:hover {
+.btn.add:hover {
   background-color: #4e814e;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px); /* 버튼이 살짝 위로 올라감 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+
 }
 
 /* Edit User 버튼 */
@@ -55,7 +68,6 @@ header {
   color: white;
   width: 98%;
   height: 30px;
-  margin: 5px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -63,10 +75,13 @@ header {
   font-size: 13px;
 }
 
+
 .btn_edit:hover {
   background-color: #83b783;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px); /* 버튼이 살짝 위로 올라감 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+
 }
 
 /* Delete User 버튼 */
@@ -75,20 +90,23 @@ header {
   color: white;
   width: 98%;
   height: 30px;
-  margin: 5px 0;
   border: none;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
   font-size: 13px;
 }
-
 .btn_delete:hover {
-  background-color: #d9534f;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #d9534f; /* 빨간색으로 변경 */
+  transform: translateY(-2px); /* 버튼이 살짝 위로 올라감 */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+
 }
 
+.btn.add:hover {
+  background-color: #83b783;
+}
 /* 사용자 리스트 */
 .user-list {
   display: flex;
@@ -100,25 +118,54 @@ header {
 .user-item {
   background-color: #edf8ed;
   padding: 15px;
+
   border: 1px solid #cde8c1;
   border-radius: 8px;
-  margin-bottom: 10px; /* 간격 추가 */
+  position: relative;
 }
 
 .user-item p {
-  margin: 5px 0;
+  margin: 5px ;
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
-/* 모달 스타일 */
+
+/* Edit 버튼 */
+.user-item button.edit-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.user-item button.edit-btn:hover {
+  background-color: #83b783;
+}
+
+/* Delete 버튼 */
+.user-item button.delete-btn {
+  background-color: #becfb3;
+  color: white;
+}
+
+.user-item button.delete-btn:hover {
+  background-color: #d9534f;
+}
+
+/* 모달 배경 */
 .modal {
-  display: none;
-}
-
-.modal.open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
+/* 모달 콘텐츠 */
 .modal-content {
   background-color: #ffffff;
   padding: 20px;
@@ -128,4 +175,43 @@ header {
   max-width: 500px;
   max-height: 80vh;
   overflow-y: auto;
+  text-align: center;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* 모달 내 버튼 */
+.modal-content button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-content button.save {
+  background-color: #4caf50;
+  color: white;
+}
+
+.modal-content button.save:hover {
+  background-color: #45a049;
+}
+
+.modal-content button.close {
+  background-color: #d9534f;
+  color: white;
+}
+
+.modal-content button.close:hover {
+  background-color: #c9302c;
 }
